@@ -9,13 +9,11 @@ import org.springframework.stereotype.Service;
 import com.example.leaftest.domain.Member;
 import com.example.leaftest.repository.MemberRepository;
 
-@Service
 public class MemberService {
 
     private final MemberRepository memberRepository;
     
     // 회원가입
-    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
