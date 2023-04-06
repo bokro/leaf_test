@@ -1,6 +1,8 @@
-package com.example.leaftest.repository;
+package com.example.leaftest.repository.bin;
 
 import com.example.leaftest.domain.Member;
+import com.example.leaftest.repository.MemberRepository;
+
 import org.springframework.jdbc.datasource.DataSourceUtils;
 
 import javax.sql.DataSource;
@@ -148,5 +150,11 @@ public class JdbcMemberRepository implements MemberRepository {
 
     private void close(Connection conn) throws SQLException {
         DataSourceUtils.releaseConnection(conn, dataSource);
+    }
+
+    @Override
+    public void delete(Member member) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 }

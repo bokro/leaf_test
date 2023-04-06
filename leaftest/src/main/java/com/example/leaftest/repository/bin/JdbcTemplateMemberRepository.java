@@ -1,4 +1,4 @@
-package com.example.leaftest.repository;
+package com.example.leaftest.repository.bin;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,6 +13,7 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 import com.example.leaftest.domain.Member;
+import com.example.leaftest.repository.MemberRepository;
 
 public class JdbcTemplateMemberRepository implements MemberRepository {
     private final JdbcTemplate jdbcTemplate;
@@ -56,5 +57,11 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
             member.setName(rs.getString("name"));
             return member;
         };
+    }
+
+    @Override
+    public void delete(Member member) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 }

@@ -9,6 +9,7 @@ import com.example.leaftest.repository.MemberRepository;
 public class SpringConfig {
 
     private final MemberRepository memberRepository;
+   
     public SpringConfig(MemberRepository memberRepository){
         this.memberRepository = memberRepository;
     }

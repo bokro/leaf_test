@@ -13,11 +13,16 @@ public class TimeTraceAop {
     public Object execute(ProceedingJoinPoint joinPoint) throws Throwable {
         long start = System.currentTimeMillis();
         System.out.println("START: " + joinPoint.toString());
+        Object[] args = joinPoint.getArgs();
         try {
+            System.out.println("ARGUMENT: " + args.hashCode());
             return joinPoint.proceed();
         } finally {
             long finish = System.currentTimeMillis();
             long timeMs = finish - start;
+            for(Object arg : args){
+                System.out.println("ARGUMENT: " + arg.toString());
+            }
             System.out.println("END: " + joinPoint.toString() + " " + timeMs + "ms");
         }
     }

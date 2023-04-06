@@ -1,4 +1,4 @@
-package com.example.leaftest.repository;
+package com.example.leaftest.repository.bin;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.persistence.EntityManager;
 
 import com.example.leaftest.domain.Member;
+import com.example.leaftest.repository.MemberRepository;
 
 public class JpaMemberRepository implements MemberRepository {
     private final EntityManager em;
@@ -34,5 +35,11 @@ public class JpaMemberRepository implements MemberRepository {
             .setParameter("name", name)
             .getResultList();
         return result.stream().findAny();
+    }
+
+    @Override
+    public void delete(Member member) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 }

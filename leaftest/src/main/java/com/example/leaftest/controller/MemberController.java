@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.leaftest.domain.Member;
 import com.example.leaftest.service.MemberService;
@@ -52,5 +53,17 @@ public class MemberController {
         model.addAttribute("members", members);
         return "members/memberList";
     }
+    
+    @GetMapping("/members/del")
+    public String deleteForm() {
+        return "members/deleteMemberForm";
+    }
+    
+    @PostMapping("/members/del")
+    public String delete(@RequestParam("name") String name) {
+        memberService.deleteByName(name);
+        return "redirect:/";
+    }
+
 
 }

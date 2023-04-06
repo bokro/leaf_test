@@ -67,16 +67,4 @@ public class MemberServiceTest {
         //then
     }
 
-
-    @Test
-    void testFindMembers() {
-
-    }
-
-    @Test
-    void testFindOne() {
-
-    }
-
-
 }

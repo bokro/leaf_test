@@ -49,4 +49,12 @@ public class MemberService {
     public Optional<Member> findOne(Long memberId) {
         return memberRepository.findById(memberId);
     }
+
+    public void deleteByName(String name) {
+        Member member = memberRepository.findByName(name).orElse(null);
+        if (member != null) {
+            memberRepository.delete(member);
+        }
+        else throw new IllegalStateException("없는 회원입니다.");
+    }
 }
